@@ -1,3 +1,8 @@
+bash
+
+SCRIPT_URL="https://script.google.com/macros/s/AKfycbzTjH_MpKHUhL3IZVyheTMUCwve8nedntil83JDVhg4xb8wIGxus30rGKJqiZOqnJ3Kqw/exec"
+
+cat > /mnt/user-data/outputs/salamat_live.html << ENDHTML
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -6,12 +11,12 @@
 <title>قاعدة بيانات الكوادر الطبية - مستشفى سلامات كير</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--p:#0d9488;--pd:#0f766e;--pl:#f0fdfa;--pm:#ccfbf1;--bg:#f8fafc;--w:#fff;--bg3:#f1f5f9;--bd:#e2e8f0;--bd2:#cbd5e1;--t:#0f172a;--t2:#334155;--t3:#64748b;--t4:#94a3b8;--sh:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.05);--shm:0 4px 12px rgba(0,0,0,.08);--shl:0 20px 50px rgba(0,0,0,.15);--r:12px;--gold:#d97706;--red:#dc2626;--grn:#16a34a;--blu:#2563eb}
+:root{--p:#0d9488;--pd:#0f766e;--pl:#f0fdfa;--pm:#ccfbf1;--bg:#f8fafc;--w:#fff;--bg3:#f1f5f9;--bd:#e2e8f0;--bd2:#cbd5e1;--t:#0f172a;--t2:#334155;--t3:#64748b;--t4:#94a3b8;--sh:0 1px 3px rgba(0,0,0,.08);--shm:0 4px 12px rgba(0,0,0,.08);--shl:0 20px 50px rgba(0,0,0,.15);--r:12px;--gold:#d97706;--red:#dc2626;--grn:#16a34a;--blu:#2563eb}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--t);direction:rtl;min-height:100vh}
 .topbar{background:var(--w);border-bottom:1px solid var(--bd);box-shadow:var(--sh);position:sticky;top:0;z-index:50}
 .tbi{max-width:1440px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
-.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand{display:flex;align-items:center;gap:12px}
 .bico{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--p),#0369a1);display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 2px 8px rgba(13,148,136,.3);flex-shrink:0}
 .brand h1{font-size:16px;font-weight:800;color:var(--t);line-height:1.2}
 .brand p{font-size:11px;color:var(--t3)}
@@ -21,45 +26,43 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--t);directio
 .chip.warn .n{color:var(--red)}.chip.gold .n{color:var(--gold)}
 .rbtn{display:flex;align-items:center;gap:6px;background:var(--pl);border:1px solid var(--pm);border-radius:20px;padding:6px 14px;cursor:pointer;font-family:'Cairo',sans-serif;font-size:12px;font-weight:600;color:var(--p);transition:all .2s}
 .rbtn:hover{background:var(--pm)}
-.rdot{width:8px;height:8px;border-radius:50%;background:var(--grn);flex-shrink:0}
+.rdot{width:8px;height:8px;border-radius:50%;background:var(--grn)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}.rdot{animation:pulse 2s infinite}
-.rdot.spin{background:var(--gold);animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .main{max-width:1440px;margin:0 auto;padding:24px}
 .tabs{display:flex;gap:2px;background:var(--w);border:1px solid var(--bd);border-radius:10px;padding:4px;margin-bottom:20px;box-shadow:var(--sh);width:fit-content}
 .tab{padding:8px 20px;border-radius:7px;border:none;background:transparent;color:var(--t3);font-family:'Cairo',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap}
-.tab.active{background:var(--p);color:#fff;box-shadow:0 2px 6px rgba(13,148,136,.3)}
+.tab.active{background:var(--p);color:#fff}
 .tab:not(.active):hover{background:var(--bg3);color:var(--t)}
 .ctrl{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
 .sw{flex:1;min-width:220px;position:relative}
 .si{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--t4);font-size:14px;pointer-events:none}
-.sinp{width:100%;background:var(--w);border:1px solid var(--bd2);border-radius:9px;padding:10px 38px 10px 14px;color:var(--t);font-family:'Cairo',sans-serif;font-size:13px;outline:none;transition:border-color .2s,box-shadow .2s;box-shadow:var(--sh)}
+.sinp{width:100%;background:var(--w);border:1px solid var(--bd2);border-radius:9px;padding:10px 38px 10px 14px;color:var(--t);font-family:'Cairo',sans-serif;font-size:13px;outline:none;box-shadow:var(--sh);transition:border-color .2s}
 .sinp:focus{border-color:var(--p);box-shadow:0 0 0 3px rgba(13,148,136,.1)}
 .sinp::placeholder{color:var(--t4)}
-select.fs{background:var(--w);border:1px solid var(--bd2);border-radius:9px;padding:10px 12px;color:var(--t2);font-family:'Cairo',sans-serif;font-size:12px;cursor:pointer;outline:none;box-shadow:var(--sh);transition:border-color .2s}
+select.fs{background:var(--w);border:1px solid var(--bd2);border-radius:9px;padding:10px 12px;color:var(--t2);font-family:'Cairo',sans-serif;font-size:12px;cursor:pointer;outline:none;box-shadow:var(--sh)}
 select.fs:focus{border-color:var(--p)}
 .btn{padding:10px 18px;border-radius:9px;border:none;cursor:pointer;font-family:'Cairo',sans-serif;font-size:13px;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:6px;white-space:nowrap}
-.bp{background:var(--p);color:#fff;box-shadow:0 2px 6px rgba(13,148,136,.25)}.bp:hover{background:var(--pd)}
+.bp{background:var(--p);color:#fff}.bp:hover{background:var(--pd)}
 .bo{background:var(--w);color:var(--t3);border:1px solid var(--bd2);box-shadow:var(--sh)}.bo:hover{border-color:var(--p);color:var(--p)}
 .card{background:var(--w);border:1px solid var(--bd);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
 .ch{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--bd);background:var(--bg3)}
-.ch span{font-size:13px;color:var(--t3)}.ch strong{color:var(--p);font-size:14px}
+.ch span{font-size:13px;color:var(--t3)}.ch strong{color:var(--p)}
 .ts{overflow-x:auto}
 table{width:100%;border-collapse:collapse;min-width:1100px}
-thead th{background:var(--bg3);padding:11px 14px;text-align:right;font-size:11px;font-weight:700;color:var(--pd);border-bottom:2px solid var(--pm);cursor:pointer;white-space:nowrap;user-select:none;transition:background .15s}
+thead th{background:var(--bg3);padding:11px 14px;text-align:right;font-size:11px;font-weight:700;color:var(--pd);border-bottom:2px solid var(--pm);cursor:pointer;white-space:nowrap;user-select:none}
 thead th:hover{background:var(--pm)}
-tbody tr{border-bottom:1px solid var(--bd);transition:background .12s;cursor:pointer}
+tbody tr{border-bottom:1px solid var(--bd);cursor:pointer;transition:background .12s}
 tbody tr:last-child{border-bottom:none}
 tbody tr:hover{background:#f0fdfa}
 tbody td{padding:11px 14px;font-size:13px;color:var(--t2);white-space:nowrap;vertical-align:middle}
 .nc{color:var(--t)!important;font-weight:700!important}
 .sc{color:var(--pd)!important;font-size:12px!important;font-weight:600!important}
-.bdg{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:700}
+.bdg{display:inline-flex;align-items:center;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:700}
 .gg{background:#dcfce7;color:#15803d}.rr{background:#fee2e2;color:#b91c1c}
-.go{background:#fef3c7;color:#b45309}.bb{background:#dbeafe;color:#1d4ed8}
-.tt{background:var(--pm);color:var(--pd)}
+.go{background:#fef3c7;color:#b45309}.bb{background:#dbeafe;color:#1d4ed8}.tt{background:var(--pm);color:var(--pd)}
 .eok{color:#16a34a;font-weight:600}.ewn{color:#d97706;font-weight:600}.eov{color:#dc2626;font-weight:600}
-.lnk{display:inline-flex;align-items:center;gap:3px;color:var(--p);font-size:12px;text-decoration:none;padding:3px 8px;border-radius:6px;background:var(--pl);border:1px solid var(--pm);font-weight:600;transition:all .15s}
+.lnk{display:inline-flex;align-items:center;gap:3px;color:var(--p);font-size:12px;text-decoration:none;padding:3px 8px;border-radius:6px;background:var(--pl);border:1px solid var(--pm);font-weight:600}
 .lnk:hover{background:var(--pm)}
 .pag{display:flex;align-items:center;justify-content:center;gap:4px;padding:16px;border-top:1px solid var(--bd);flex-wrap:wrap}
 .pg{width:34px;height:34px;border-radius:8px;border:1px solid var(--bd);background:var(--w);color:var(--t3);cursor:pointer;font-family:'Cairo',sans-serif;font-size:13px;display:flex;align-items:center;justify-content:center;transition:all .15s}
@@ -73,9 +76,8 @@ tbody td{padding:11px 14px;font-size:13px;color:var(--t2);white-space:nowrap;ver
 .mh{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--bd);position:sticky;top:0;background:var(--w);z-index:1}
 .mh h2{font-size:17px;font-weight:800;color:var(--t)}
 .mcl{width:32px;height:32px;border-radius:8px;border:1px solid var(--bd);background:var(--bg3);color:var(--t3);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:17px;transition:all .15s}
-.mcl:hover{background:#fee2e2;border-color:#fca5a5;color:var(--red)}
-.mb{padding:22px 24px}
-.ms{margin-bottom:20px}
+.mcl:hover{background:#fee2e2;color:var(--red)}
+.mb{padding:22px 24px}.ms{margin-bottom:20px}
 .ms h3{font-size:11px;font-weight:800;color:var(--pd);letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--pm)}
 .dg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .di label{font-size:11px;color:var(--t4);display:block;margin-bottom:3px;font-weight:600}
@@ -84,21 +86,18 @@ tbody td{padding:11px 14px;font-size:13px;color:var(--t2);white-space:nowrap;ver
 .sc2{background:var(--w);border:1px solid var(--bd);border-radius:var(--r);padding:16px;box-shadow:var(--sh);transition:box-shadow .2s,border-color .2s}
 .sc2:hover{box-shadow:var(--shm);border-color:var(--pm)}
 .sc2 .sl{font-size:12px;color:var(--t3);margin-bottom:6px;font-weight:600}
-.sc2 .sv{font-size:28px;font-weight:900;color:var(--t);line-height:1}
+.sc2 .sv{font-size:28px;font-weight:900;line-height:1}
 .sc2 .ss{font-size:11px;color:var(--p);margin-top:5px;font-weight:600}
 .empty{text-align:center;padding:56px;color:var(--t4)}
 .empty .ei{font-size:44px;margin-bottom:12px;opacity:.35}
-.loading-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px}
-.spinner{width:48px;height:48px;border:4px solid var(--pm);border-top-color:var(--p);border-radius:50%;animation:spin 0.8s linear infinite}
-.loading-screen p{color:var(--t3);font-size:15px;font-weight:600}
-.error-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:12px;text-align:center}
-.error-screen .ei{font-size:52px}
-.error-screen h2{font-size:18px;font-weight:800;color:var(--t)}
-.error-screen p{color:var(--t3);font-size:13px;max-width:400px;line-height:1.7}
-.error-screen button{margin-top:8px}
+.ls{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px}
+.sp{width:48px;height:48px;border:4px solid var(--pm);border-top-color:var(--p);border-radius:50%;animation:spin .8s linear infinite}
+.ls p{color:var(--t3);font-size:15px;font-weight:600}
+.es{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:12px;text-align:center}
+.es h2{font-size:18px;font-weight:800}.es p{color:var(--t3);font-size:13px;max-width:420px;line-height:1.7}
 .lbar{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--p),#38bdf8,var(--p));background-size:200%;animation:lbA 1.2s linear infinite;z-index:999;display:none}
 @keyframes lbA{0%{background-position:0%}100%{background-position:200%}}
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--t);border-radius:10px;padding:11px 22px;font-size:13px;color:#fff;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap;box-shadow:var(--shm)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--t);border-radius:10px;padding:11px 22px;font-size:13px;color:#fff;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap}
 .toast.show{opacity:1}
 @media(max-width:700px){.tr .chip{display:none}.dg{grid-template-columns:1fr}.sg{grid-template-columns:repeat(2,1fr)}.main{padding:12px}}
 </style>
@@ -106,499 +105,205 @@ tbody td{padding:11px 14px;font-size:13px;color:var(--t2);white-space:nowrap;ver
 <body>
 <div class="lbar" id="lbar"></div>
 <div class="toast" id="toast"></div>
-
 <div class="topbar">
   <div class="tbi">
     <div class="brand">
       <div class="bico">🏥</div>
-      <div>
-        <h1>مستشفى سلامات كير</h1>
-        <p>قاعدة بيانات الكوادر الطبية — <span id="lastUpdate" style="color:var(--p)">جارٍ التحميل...</span></p>
-      </div>
+      <div><h1>مستشفى سلامات كير</h1><p>قاعدة بيانات الكوادر الطبية — <span id="lastUpdate" style="color:var(--p)">جارٍ التحميل...</span></p></div>
     </div>
     <div class="tr">
       <div id="topStats" style="display:flex;gap:8px;"></div>
-      <button class="rbtn" onclick="manualRefresh()" id="refreshBtn">
-        <span class="rdot" id="rdot"></span>
-        <span id="cntdown">تحديث تلقائي</span>
-      </button>
+      <button class="rbtn" onclick="manualRefresh()"><span class="rdot"></span><span id="cntdown">5:00</span></button>
     </div>
   </div>
 </div>
-
-<div class="main" id="mainContent">
-  <!-- Loading -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="spinner"></div>
-    <p>جارٍ تحميل البيانات من Google Sheets...</p>
-  </div>
-
-  <!-- Error -->
-  <div class="error-screen" id="errorScreen" style="display:none">
-    <div class="ei">⚠️</div>
+<div class="main">
+  <div class="ls" id="ls"><div class="sp"></div><p>جارٍ تحميل البيانات...</p></div>
+  <div class="es" id="es" style="display:none">
+    <div style="font-size:52px">⚠️</div>
     <h2>تعذّر تحميل البيانات</h2>
-    <p>تأكد من اتصالك بالإنترنت وأن الـ Script يعمل بشكل صحيح</p>
-    <button class="btn bp" onclick="loadData()">🔄 إعادة المحاولة</button>
+    <p id="emsg">جارٍ المحاولة...</p>
+    <button class="btn bp" onclick="init()" style="margin-top:8px">🔄 إعادة المحاولة</button>
   </div>
-
-  <!-- App -->
-  <div id="appContent" style="display:none">
+  <div id="app" style="display:none">
     <div class="tabs">
       <button class="tab active" onclick="switchTab('table')">📋 قائمة الموظفين</button>
       <button class="tab" onclick="switchTab('summary')">📊 الإحصائيات</button>
       <button class="tab" onclick="switchTab('expiry')">⏰ انتهاء التراخيص</button>
     </div>
-
     <div id="tab-table">
       <div class="ctrl">
-        <div class="sw">
-          <span class="si">🔍</span>
-          <input class="sinp" id="srch" type="text" placeholder="البحث بالاسم أو التخصص أو الجنسية..." oninput="applyFilters()">
-        </div>
-        <select class="fs" id="fNat" onchange="applyFilters()"><option value="">كل الجنسيات</option></select>
-        <select class="fs" id="fDeg" onchange="applyFilters()"><option value="">كل الدرجات</option></select>
-        <select class="fs" id="fCat" onchange="applyFilters()"><option value="">كل الفئات</option></select>
+        <div class="sw"><span class="si">🔍</span><input class="sinp" id="srch" type="text" placeholder="البحث بالاسم أو التخصص أو الجنسية..." oninput="applyF()"></div>
+        <select class="fs" id="fN" onchange="applyF()"><option value="">كل الجنسيات</option></select>
+        <select class="fs" id="fD" onchange="applyF()"><option value="">كل الدرجات</option></select>
+        <select class="fs" id="fC" onchange="applyF()"><option value="">كل الفئات</option></select>
         <button class="btn bo" onclick="clearF()">✕ مسح</button>
         <button class="btn bp" onclick="exportCSV()">⬇ تصدير</button>
       </div>
       <div class="card">
-        <div class="ch">
-          <span>النتائج: <strong id="rcount">0</strong></span>
-          <span id="pinfo" style="font-size:12px;color:var(--t4);"></span>
-        </div>
-        <div class="ts">
-          <table>
-            <thead><tr>
-              <th onclick="srt('م')">م ↕</th>
-              <th onclick="srt('الإسم')">الاسم ↕</th>
-              <th onclick="srt('الجنسية')">الجنسية ↕</th>
-              <th onclick="srt('الدرجة')">الدرجة ↕</th>
-              <th onclick="srt('التخصص')">التخصص ↕</th>
-              <th onclick="srt('الفئة')">الفئة ↕</th>
-              <th onclick="srt('تاريخ الميلاد')">تاريخ الميلاد ↕</th>
-              <th onclick="srt('إنتهاء التسجيل المهني')">انتهاء التسجيل ↕</th>
-              <th onclick="srt('إنتهاء التراخيص الطبي')">انتهاء الترخيص ↕</th>
-              <th>التأمين</th>
-              <th>الملف</th>
-              <th>رابط</th>
-            </tr></thead>
-            <tbody id="tbody"></tbody>
-          </table>
-        </div>
+        <div class="ch"><span>النتائج: <strong id="rc">0</strong></span><span id="pi" style="font-size:12px;color:var(--t4)"></span></div>
+        <div class="ts"><table>
+          <thead><tr>
+            <th onclick="srt('م')">م ↕</th><th onclick="srt('الإسم')">الاسم ↕</th>
+            <th onclick="srt('الجنسية')">الجنسية ↕</th><th onclick="srt('الدرجة')">الدرجة ↕</th>
+            <th onclick="srt('التخصص')">التخصص ↕</th><th onclick="srt('الفئة')">الفئة ↕</th>
+            <th onclick="srt('تاريخ الميلاد')">تاريخ الميلاد ↕</th>
+            <th onclick="srt('إنتهاء التسجيل المهني')">انتهاء التسجيل ↕</th>
+            <th onclick="srt('إنتهاء التراخيص الطبي')">انتهاء الترخيص ↕</th>
+            <th>التأمين</th><th>الملف</th><th>رابط</th>
+          </tr></thead>
+          <tbody id="tb"></tbody>
+        </table></div>
         <div class="pag" id="pag"></div>
       </div>
     </div>
-
     <div id="tab-summary" style="display:none">
-      <div class="sg" id="scards"></div>
-      <div class="card" style="margin-bottom:16px">
-        <div class="ch"><span>توزيع الجنسيات</span></div>
-        <div style="padding:16px 20px" id="natChart"></div>
-      </div>
-      <div class="card">
-        <div class="ch"><span>توزيع الدرجات الوظيفية</span></div>
-        <div style="padding:16px 20px" id="degChart"></div>
-      </div>
+      <div class="sg" id="sc"></div>
+      <div class="card" style="margin-bottom:16px"><div class="ch"><span>توزيع الجنسيات</span></div><div style="padding:16px 20px" id="nc"></div></div>
+      <div class="card"><div class="ch"><span>توزيع الدرجات</span></div><div style="padding:16px 20px" id="dc"></div></div>
     </div>
-
-    <div id="tab-expiry" style="display:none">
-      <div id="exList"></div>
-    </div>
+    <div id="tab-expiry" style="display:none"><div id="el"></div></div>
   </div>
 </div>
-
-<!-- Modal -->
-<div class="ov2" id="ov" onclick="closeOuter(event)">
+<div class="ov2" id="ov" onclick="if(event.target===this)closeM()">
   <div class="modal">
-    <div class="mh">
-      <h2 id="mname">تفاصيل الموظف</h2>
-      <button class="mcl" onclick="closeM()">✕</button>
-    </div>
-    <div class="mb" id="mbody"></div>
+    <div class="mh"><h2 id="mn">تفاصيل</h2><button class="mcl" onclick="closeM()">✕</button></div>
+    <div class="mb" id="mb"></div>
   </div>
 </div>
-
 <script>
-const API_URL = "https://script.google.com/macros/s/AKfycbwCjjv51wxkjRLU1lRlN2kx1KFSe4UsSTd4B8cNGxvw7pIGpG2BymLOSDmv8Gu3ojwzOQ/exec";
-const REFRESH_INTERVAL = 5 * 60; // 5 minutes
+const SRC = "${SCRIPT_URL}";
+const FLAGS={"مصري":"🇪🇬","مصرية":"🇪🇬","سعودي":"🇸🇦","سعودية":"🇸🇦","سوداني":"🇸🇩","سودانية":"🇸🇩","سودانيه":"🇸🇩","يمني":"🇾🇪","يمنية":"🇾🇪","جزائري":"🇩🇿","جزائرية":"🇩🇿","تونسي":"🇹🇳","روسي":"🇷🇺","سوري":"🇸🇾","سورية":"🇸🇾","فلسطيني":"🇵🇸","أردني":"🇯🇴","لبناني":"🇱🇧","عراقي":"🇮🇶","باكستاني":"🇵🇰","هندي":"🇮🇳"};
+const fl=n=>FLAGS[n]||"🌍";
+let AD=[],FD=[],SC="",SA=true,PG=1;
+const PS=15;let secs=300,ct=null;
 
-const FLAGS = {"مصري":"🇪🇬","مصرية":"🇪🇬","سعودي":"🇸🇦","سعودية":"🇸🇦","سوداني":"🇸🇩","سودانية":"🇸🇩","سودانيه":"🇸🇩","يمني":"🇾🇪","يمنية":"🇾🇪","جزائري":"🇩🇿","جزائرية":"🇩🇿","تونسي":"🇹🇳","روسي":"🇷🇺","سوري":"🇸🇾","سورية":"🇸🇾","فلسطيني":"🇵🇸","فلسطينية":"🇵🇸","أردني":"🇯🇴","لبناني":"🇱🇧","عراقي":"🇮🇶","باكستاني":"🇵🇰","هندي":"🇮🇳"};
-const flag = n => FLAGS[n] || "🌍";
-
-let ALL_DATA = [], filtered = [], sortCol = "", sortAsc = true, page = 1;
-const PS = 15;
-let secs = REFRESH_INTERVAL, cdTimer = null;
-
-// ── Fetch data ──────────────────────────────────────────
-async function loadData(silent = false) {
-  if (!silent) {
-    document.getElementById("loadingScreen").style.display = "flex";
-    document.getElementById("errorScreen").style.display = "none";
-    document.getElementById("appContent").style.display = "none";
-    document.getElementById("lbar").style.display = "block";
-  } else {
-    document.getElementById("lbar").style.display = "block";
-    document.getElementById("rdot").classList.add("spin");
+// ── Fetch using multiple strategies ──────────────────────
+async function fetchData(){
+  const strategies=[
+    // 1. allorigins
+    ()=>fetch("https://api.allorigins.win/raw?url="+encodeURIComponent(SRC+"?t="+Date.now())).then(r=>{if(!r.ok)throw 0;return r.json();}),
+    // 2. corsproxy.io  
+    ()=>fetch("https://corsproxy.io/?"+encodeURIComponent(SRC)).then(r=>{if(!r.ok)throw 0;return r.json();}),
+    // 3. htmldriven proxy
+    ()=>fetch("https://proxy.cors.sh/"+SRC,{headers:{"x-cors-api-key":"temp_demo"}}).then(r=>{if(!r.ok)throw 0;return r.json();}),
+    // 4. thingproxy
+    ()=>fetch("https://thingproxy.freeboard.io/fetch/"+SRC).then(r=>{if(!r.ok)throw 0;return r.json();}),
+  ];
+  for(const s of strategies){
+    try{
+      const d=await Promise.race([s(),new Promise((_,r)=>setTimeout(()=>r("timeout"),8000))]);
+      if(Array.isArray(d)&&d.length>0)return d;
+    }catch(e){continue;}
   }
-
-  try {
-    // Use no-cors won't work for JSON, use a CORS proxy as fallback
-    let data;
-    try {
-      const res = await fetch(API_URL);
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      data = await res.json();
-    } catch(e) {
-      // Try CORS proxy
-      const proxy = "https://api.allorigins.win/raw?url=" + encodeURIComponent(API_URL);
-      const res2 = await fetch(proxy);
-      if (!res2.ok) throw new Error("Proxy failed");
-      data = await res2.json();
-    }
-
-    if (!Array.isArray(data) || data.length === 0) throw new Error("Empty data");
-
-    // Filter rows that have a name
-    ALL_DATA = data.filter(r => {
-      const name = r["الإسم"] || r["\u0627\u0644\u0625\u0633\u0645"] || "";
-      return name.toString().trim() !== "";
-    });
-
-    if (!silent) {
-      document.getElementById("loadingScreen").style.display = "none";
-      document.getElementById("appContent").style.display = "block";
-    }
-
-    // Update timestamp
-    const now = new Date();
-    document.getElementById("lastUpdate").textContent =
-      "آخر تحديث: " + now.toLocaleTimeString("ar-SA");
-
-    buildFilters();
-    applyFilters();
-    buildStats();
-
-    // Rebuild active tab if switching back
-    const activeTab = document.querySelector(".tab.active");
-    if (activeTab) {
-      const txt = activeTab.textContent;
-      if (txt.includes("إحصاء") || txt.includes("📊")) buildSummary();
-      if (txt.includes("انتهاء") || txt.includes("⏰")) buildExpiryList();
-    }
-
-    if (silent) showToast("🔄 تم تحديث البيانات — " + ALL_DATA.length + " موظف");
-
-  } catch(err) {
-    console.error(err);
-    if (!silent) {
-      document.getElementById("loadingScreen").style.display = "none";
-      document.getElementById("errorScreen").style.display = "flex";
-    } else {
-      showToast("⚠️ تعذّر التحديث، سيتم المحاولة لاحقاً");
-    }
-  } finally {
-    document.getElementById("lbar").style.display = "none";
-    document.getElementById("rdot").classList.remove("spin");
-  }
+  throw new Error("all failed");
 }
 
-// ── Auto refresh countdown ──────────────────────────────
-function startCountdown() {
-  secs = REFRESH_INTERVAL;
-  clearInterval(cdTimer);
-  cdTimer = setInterval(() => {
-    secs--;
-    const m = Math.floor(secs / 60);
-    const s = (secs % 60).toString().padStart(2, "0");
-    document.getElementById("cntdown").textContent = m + ":" + s;
-    if (secs <= 0) {
-      secs = REFRESH_INTERVAL;
-      loadData(true);
-    }
-  }, 1000);
+async function loadData(silent){
+  if(!silent){show("ls");document.getElementById("lbar").style.display="block";}
+  else document.getElementById("lbar").style.display="block";
+  try{
+    const raw=await fetchData();
+    AD=raw.filter(r=>String(r["الإسم"]||"").trim());
+    if(!AD.length)throw 0;
+    if(!silent){show("app");}
+    document.getElementById("lastUpdate").textContent="آخر تحديث: "+new Date().toLocaleTimeString("ar-SA");
+    buildFilters();applyF();buildStats();
+    if(silent)toast("🔄 تم تحديث البيانات — "+AD.length+" موظف");
+  }catch(e){
+    if(!silent){show("es");document.getElementById("emsg").textContent="تعذّر الاتصال. تأكد من إعدادات الـ Apps Script.";}
+    else toast("⚠️ تعذّر التحديث");
+  }finally{document.getElementById("lbar").style.display="none";}
 }
 
-function manualRefresh() {
-  clearInterval(cdTimer);
-  loadData(true).then(() => startCountdown());
-}
+function show(id){["ls","es","app"].forEach(x=>document.getElementById(x).style.display=x===id?(x==="app"?"block":"flex"):"none");}
 
-// ── Helpers ─────────────────────────────────────────────
-function pDate(s) {
-  if (!s) return null;
-  if (/^1[34]\d\d/.test(String(s))) return null;
-  let d = new Date(s); if (!isNaN(d)) return d;
-  const m = String(s).match(/(\d+)\/(\d+)\/(\d+)/);
-  if (m) return new Date(+m[3], +m[1]-1, +m[2]);
-  return null;
-}
-function fmtDate(s) {
-  const d = pDate(s); if (!d) return s || "-";
-  return d.toLocaleDateString("ar-SA", {year:"numeric", month:"short", day:"numeric"});
-}
-function expCls(s) {
-  const d = pDate(s); if (!d) return "";
-  const diff = (d - new Date()) / 86400000;
-  return diff < 0 ? "eov" : diff < 90 ? "ewn" : "eok";
-}
-function esc(s) {
-  return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-}
+function startCD(){secs=300;clearInterval(ct);ct=setInterval(()=>{secs--;const m=Math.floor(secs/60),s=(secs%60).toString().padStart(2,"0");document.getElementById("cntdown").textContent=m+":"+s;if(secs<=0){loadData(true);secs=300;}},1000);}
+function manualRefresh(){loadData(true);secs=300;}
+function init(){loadData(false);startCD();}
 
-// ── Filters ─────────────────────────────────────────────
-function buildFilters() {
-  const u = (id, arr, wf) => {
-    const el = document.getElementById(id), cur = el.value;
-    el.innerHTML = "<option value=''>" + el.options[0].text + "</option>";
-    arr.forEach(v => {
-      const o = document.createElement("option");
-      o.value = v; o.textContent = (wf ? flag(v) + " " : "") + v;
-      if (v === cur) o.selected = true;
-      el.appendChild(o);
-    });
-  };
-  u("fNat", [...new Set(ALL_DATA.map(r=>r["الجنسية"]).filter(Boolean))].sort(), true);
-  u("fDeg", [...new Set(ALL_DATA.map(r=>r["الدرجة"]).filter(Boolean))].sort(), false);
-  u("fCat", [...new Set(ALL_DATA.map(r=>r["الفئة"]).filter(Boolean))].sort(), false);
+function pD(s){if(!s)return null;if(/^1[34]\d\d/.test(String(s)))return null;let d=new Date(s);if(!isNaN(d))return d;const m=String(s).match(/(\d+)\/(\d+)\/(\d+)/);if(m)return new Date(+m[3],+m[1]-1,+m[2]);return null;}
+function fmD(s){const d=pD(s);if(!d)return s||"-";return d.toLocaleDateString("ar-SA",{year:"numeric",month:"short",day:"numeric"});}
+function eC(s){const d=pD(s);if(!d)return "";const df=(d-new Date())/86400000;return df<0?"eov":df<90?"ewn":"eok";}
+function esc(s){return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+
+function buildFilters(){
+  const u=(id,arr,wf)=>{const el=document.getElementById(id),cv=el.value;el.innerHTML="<option value=''>"+el.options[0].text+"</option>";arr.forEach(v=>{const o=document.createElement("option");o.value=v;o.textContent=(wf?fl(v)+" ":"")+v;if(v===cv)o.selected=true;el.appendChild(o);});};
+  u("fN",[...new Set(AD.map(r=>r["الجنسية"]).filter(Boolean))].sort(),true);
+  u("fD",[...new Set(AD.map(r=>r["الدرجة"]).filter(Boolean))].sort(),false);
+  u("fC",[...new Set(AD.map(r=>r["الفئة"]).filter(Boolean))].sort(),false);
 }
-
-function applyFilters() {
-  const q = (document.getElementById("srch").value || "").toLowerCase();
-  const nat = document.getElementById("fNat").value;
-  const deg = document.getElementById("fDeg").value;
-  const cat = document.getElementById("fCat").value;
-  filtered = ALL_DATA.filter(r => {
-    const t = [r["الإسم"],r["التخصص"],r["الجنسية"],r["الدرجة"],r["المهنة بالاقامة"]].join(" ").toLowerCase();
-    if (q && !t.includes(q)) return false;
-    if (nat && r["الجنسية"] !== nat) return false;
-    if (deg && r["الدرجة"] !== deg) return false;
-    if (cat && r["الفئة"] !== cat) return false;
-    return true;
-  });
-  page = 1; render();
+function applyF(){
+  const q=(document.getElementById("srch").value||"").toLowerCase();
+  const n=document.getElementById("fN").value,d=document.getElementById("fD").value,c=document.getElementById("fC").value;
+  FD=AD.filter(r=>{const t=[r["الإسم"],r["التخصص"],r["الجنسية"],r["الدرجة"]].join(" ").toLowerCase();if(q&&!t.includes(q))return false;if(n&&r["الجنسية"]!==n)return false;if(d&&r["الدرجة"]!==d)return false;if(c&&r["الفئة"]!==c)return false;return true;});
+  PG=1;render();
 }
+function clearF(){document.getElementById("srch").value="";["fN","fD","fC"].forEach(id=>document.getElementById(id).value="");applyF();}
+function srt(col){if(SC===col)SA=!SA;else{SC=col;SA=true;}FD.sort((a,b)=>{const av=String(a[col]||""),bv=String(b[col]||"");return SA?av.localeCompare(bv,"ar"):bv.localeCompare(av,"ar");});render();}
 
-function clearF() {
-  document.getElementById("srch").value = "";
-  ["fNat","fDeg","fCat"].forEach(id => document.getElementById(id).value = "");
-  applyFilters();
-}
-
-function srt(col) {
-  if (sortCol === col) sortAsc = !sortAsc; else { sortCol = col; sortAsc = true; }
-  filtered.sort((a,b) => {
-    const av = String(a[col]||""), bv = String(b[col]||"");
-    return sortAsc ? av.localeCompare(bv,"ar") : bv.localeCompare(av,"ar");
-  });
-  render();
-}
-
-// ── Render table ─────────────────────────────────────────
-function render() {
-  const total = filtered.length;
-  document.getElementById("rcount").textContent = total;
-  const pages = Math.ceil(total / PS) || 1;
-  const start = (page-1) * PS;
-  const rows = filtered.slice(start, start+PS);
-  document.getElementById("pinfo").textContent = "صفحة " + page + " من " + pages;
-
-  const tb = document.getElementById("tbody");
-  if (!rows.length) {
-    tb.innerHTML = "<tr><td colspan='12'><div class='empty'><div class='ei'>🔍</div><p>لا توجد نتائج</p></div></td></tr>";
-    document.getElementById("pag").innerHTML = ""; return;
-  }
-
-  tb.innerHTML = rows.map((r, i) => {
-    const rexp = r["إنتهاء التسجيل المهني"] || "";
-    const lexp = r["إنتهاء التراخيص الطبي"] || "";
-    const insOk = String(r["التأمين الطبي"]||"").includes("ساري");
-    const fileOk = String(r["الملف متوفر؟"]||"") === "TRUE";
-    const lnk = r["رابط الترخيص"] || "";
-    const idx = start + i;
-    return "<tr onclick='showM(" + idx + ")'>" +
-      "<td style='color:var(--t4);font-size:12px'>" + esc(r["م"]) + "</td>" +
-      "<td class='nc'>" + esc(r["الإسم"]) + "</td>" +
-      "<td>" + flag(r["الجنسية"]) + " " + esc(r["الجنسية"]) + "</td>" +
-      "<td>" + (r["الدرجة"] ? "<span class='bdg tt'>" + esc(r["الدرجة"]) + "</span>" : "-") + "</td>" +
-      "<td class='sc'>" + esc(r["التخصص"]) + "</td>" +
-      "<td>" + (r["الفئة"] ? "<span class='bdg bb' style='font-size:11px'>" + esc(r["الفئة"]) + "</span>" : "-") + "</td>" +
-      "<td style='color:var(--t3);font-size:12px'>" + esc(r["تاريخ الميلاد"]) + "</td>" +
-      "<td class='" + expCls(rexp) + "'>" + fmtDate(rexp) + "</td>" +
-      "<td class='" + expCls(lexp) + "'>" + fmtDate(lexp) + "</td>" +
-      "<td><span class='bdg " + (insOk?"gg":"rr") + "'>" + (insOk?"✓ ساري":"✗") + "</span></td>" +
-      "<td><span class='bdg " + (fileOk?"gg":"rr") + "'>" + (fileOk?"✓":"✗") + "</span></td>" +
-      "<td>" + (lnk ? "<a class='lnk' href='" + esc(lnk) + "' target='_blank' onclick='event.stopPropagation()'>🔗</a>" : "-") + "</td>" +
-      "</tr>";
+function render(){
+  const tot=FD.length,pages=Math.ceil(tot/PS)||1,start=(PG-1)*PS,rows=FD.slice(start,start+PS);
+  document.getElementById("rc").textContent=tot;
+  document.getElementById("pi").textContent="صفحة "+PG+" من "+pages;
+  const tb=document.getElementById("tb");
+  if(!rows.length){tb.innerHTML="<tr><td colspan='12'><div class='empty'><div class='ei'>🔍</div><p>لا توجد نتائج</p></div></td></tr>";document.getElementById("pag").innerHTML="";return;}
+  tb.innerHTML=rows.map((r,i)=>{
+    const re=r["إنتهاء التسجيل المهني"]||"",le=r["إنتهاء التراخيص الطبي"]||"";
+    const io=String(r["التأمين الطبي"]||"").includes("ساري"),fo=String(r["الملف متوفر؟"]||"")==="TRUE",lk=r["رابط الترخيص"]||"";
+    return "<tr onclick='showM("+(start+i)+")'><td style='color:var(--t4);font-size:12px'>"+esc(r["م"])+"</td><td class='nc'>"+esc(r["الإسم"])+"</td><td>"+fl(r["الجنسية"])+" "+esc(r["الجنسية"])+"</td><td>"+(r["الدرجة"]?"<span class='bdg tt'>"+esc(r["الدرجة"])+"</span>":"-")+"</td><td class='sc'>"+esc(r["التخصص"])+"</td><td>"+(r["الفئة"]?"<span class='bdg bb' style='font-size:11px'>"+esc(r["الفئة"])+"</span>":"-")+"</td><td style='color:var(--t3);font-size:12px'>"+esc(r["تاريخ الميلاد"])+"</td><td class='"+eC(re)+"'>"+fmD(re)+"</td><td class='"+eC(le)+"'>"+fmD(le)+"</td><td><span class='bdg "+(io?"gg":"rr")+"'>"+(io?"✓ ساري":"✗")+"</span></td><td><span class='bdg "+(fo?"gg":"rr")+"'>"+(fo?"✓":"✗")+"</span></td><td>"+(lk?"<a class='lnk' href='"+esc(lk)+"' target='_blank' onclick='event.stopPropagation()'>🔗</a>":"-")+"</td></tr>";
   }).join("");
-
-  // Pagination
-  const pag = document.getElementById("pag");
-  if (pages <= 1) { pag.innerHTML = ""; return; }
-  let h = "<button class='pg' onclick='goP(" + (page-1) + ")' " + (page===1?"disabled":"") + ">‹</button>";
-  for (let p = 1; p <= pages; p++) {
-    if (p===1 || p===pages || Math.abs(p-page)<=1)
-      h += "<button class='pg " + (p===page?"act":"") + "' onclick='goP(" + p + ")'>" + p + "</button>";
-    else if (Math.abs(p-page)===2)
-      h += "<span style='color:var(--t4);padding:0 4px;line-height:34px'>…</span>";
-  }
-  h += "<button class='pg' onclick='goP(" + (page+1) + ")' " + (page===pages?"disabled":"") + ">›</button>";
-  pag.innerHTML = h;
+  const pag=document.getElementById("pag");
+  if(pages<=1){pag.innerHTML="";return;}
+  let h="<button class='pg' onclick='goP("+(PG-1)+")' "+(PG===1?"disabled":"")+">‹</button>";
+  for(let p=1;p<=pages;p++){if(p===1||p===pages||Math.abs(p-PG)<=1)h+="<button class='pg "+(p===PG?"act":"")+"' onclick='goP("+p+")'>"+p+"</button>";else if(Math.abs(p-PG)===2)h+="<span style='color:var(--t4);padding:0 4px'>…</span>";}
+  h+="<button class='pg' onclick='goP("+(PG+1)+")' "+(PG===pages?"disabled":"")+">›</button>";
+  pag.innerHTML=h;
 }
+function goP(p){PG=p;render();window.scrollTo({top:0,behavior:"smooth"});}
 
-function goP(p) { page = p; render(); window.scrollTo({top:0,behavior:"smooth"}); }
-
-// ── Modal ────────────────────────────────────────────────
-function showM(idx) {
-  const r = filtered[idx];
-  document.getElementById("mname").textContent = r["الإسم"] || "تفاصيل";
-  const lnkT = r["رابط الترخيص"] || "";
-  const lnkD = r["رابط ملف الوثيقة"] || "";
-  function row2(l, v) { return "<div class='di'><label>" + l + "</label><span>" + (v||"-") + "</span></div>"; }
-  document.getElementById("mbody").innerHTML =
-    "<div class='ms'><h3>المعلومات الشخصية</h3><div class='dg'>" +
-      row2("الاسم الكامل", esc(r["الإسم"])) +
-      row2("الجنسية", flag(r["الجنسية"]) + " " + esc(r["الجنسية"])) +
-      row2("تاريخ الميلاد", esc(r["تاريخ الميلاد"])) +
-      row2("رقم الإقامة", esc(r["الاقامة"])) +
-      row2("نوع الإقامة", esc(r["muqeem"])) +
-      row2("رقم الجوال", esc(r["رقم الجوال"])) +
-    "</div></div>" +
-    "<div class='ms'><h3>المعلومات المهنية</h3><div class='dg'>" +
-      row2("التخصص", "<span style='color:var(--pd)'>" + esc(r["التخصص"]) + "</span>") +
-      row2("الفئة", esc(r["الفئة"])) +
-      row2("الدرجة", esc(r["الدرجة"])) +
-      row2("المهنة بالإقامة", esc(r["المهنة بالاقامة"])) +
-    "</div></div>" +
-    "<div class='ms'><h3>التراخيص والتسجيل</h3><div class='dg'>" +
-      row2("رقم التسجيل", esc(r["رقم التسجيل المهني"])) +
-      row2("انتهاء التسجيل", "<span class='" + expCls(r["إنتهاء التسجيل المهني"]) + "'>" + fmtDate(r["إنتهاء التسجيل المهني"]) + "</span>") +
-      row2("رقم الترخيص", esc(r["رقم الترخيص"])) +
-      row2("انتهاء الترخيص", "<span class='" + expCls(r["إنتهاء التراخيص الطبي"]) + "'>" + fmtDate(r["إنتهاء التراخيص الطبي"]) + "</span>") +
-      row2("الملف متوفر", r["الملف متوفر؟"]==="TRUE" ? "✓ نعم" : "✗ لا") +
-      row2("رابط الترخيص", lnkT ? "<a href='" + esc(lnkT) + "' target='_blank' class='lnk'>🔗 فتح</a>" : "-") +
-    "</div></div>" +
-    "<div class='ms'><h3>التأمين الطبي</h3><div class='dg'>" +
-      row2("حالة التأمين", esc(r["التأمين الطبي"])) +
-      row2("رقم الوثيقة", esc(r["رقم الوثيقة"])) +
-      row2("تاريخ الانتهاء", fmtDate(r["تاريخ الانتهاء"])) +
-      row2("وثيقة التأمين", lnkD ? "<a href='" + esc(lnkD) + "' target='_blank' class='lnk'>🔗 فتح</a>" : "-") +
-    "</div></div>";
+function showM(i){
+  const r=FD[i];document.getElementById("mn").textContent=r["الإسم"]||"تفاصيل";
+  const lT=r["رابط الترخيص"]||"",lD=r["رابط ملف الوثيقة"]||"";
+  function rw(l,v){return "<div class='di'><label>"+l+"</label><span>"+(v||"-")+"</span></div>";}
+  document.getElementById("mb").innerHTML=
+    "<div class='ms'><h3>المعلومات الشخصية</h3><div class='dg'>"+rw("الاسم",esc(r["الإسم"]))+rw("الجنسية",fl(r["الجنسية"])+" "+esc(r["الجنسية"]))+rw("تاريخ الميلاد",esc(r["تاريخ الميلاد"]))+rw("رقم الإقامة",esc(r["الاقامة"]))+rw("نوع الإقامة",esc(r["muqeem"]))+rw("رقم الجوال",esc(r["رقم الجوال"]))+"</div></div>"+
+    "<div class='ms'><h3>المعلومات المهنية</h3><div class='dg'>"+rw("التخصص","<span style='color:var(--pd)'>"+esc(r["التخصص"])+"</span>")+rw("الفئة",esc(r["الفئة"]))+rw("الدرجة",esc(r["الدرجة"]))+rw("المهنة بالإقامة",esc(r["المهنة بالاقامة"]))+"</div></div>"+
+    "<div class='ms'><h3>التراخيص والتسجيل</h3><div class='dg'>"+rw("رقم التسجيل",esc(r["رقم التسجيل المهني"]))+"<div class='di'><label>انتهاء التسجيل</label><span class='"+eC(r["إنتهاء التسجيل المهني"])+"'>"+fmD(r["إنتهاء التسجيل المهني"])+"</span></div>"+rw("رقم الترخيص",esc(r["رقم الترخيص"]))+"<div class='di'><label>انتهاء الترخيص</label><span class='"+eC(r["إنتهاء التراخيص الطبي"])+"'>"+fmD(r["إنتهاء التراخيص الطبي"])+"</span></div>"+rw("الملف",r["الملف متوفر؟"]==="TRUE"?"✓ نعم":"✗ لا")+rw("رابط الترخيص",lT?"<a href='"+esc(lT)+"' target='_blank' class='lnk'>🔗 فتح</a>":"-")+"</div></div>"+
+    "<div class='ms'><h3>التأمين الطبي</h3><div class='dg'>"+rw("حالة التأمين",esc(r["التأمين الطبي"]))+rw("رقم الوثيقة",esc(r["رقم الوثيقة"]))+rw("تاريخ الانتهاء",fmD(r["تاريخ الانتهاء"]))+rw("وثيقة التأمين",lD?"<a href='"+esc(lD)+"' target='_blank' class='lnk'>🔗 فتح</a>":"-")+"</div></div>";
   document.getElementById("ov").classList.add("open");
 }
-function closeM() { document.getElementById("ov").classList.remove("open"); }
-function closeOuter(e) { if (e.target === document.getElementById("ov")) closeM(); }
-document.addEventListener("keydown", e => { if (e.key === "Escape") closeM(); });
+function closeM(){document.getElementById("ov").classList.remove("open");}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeM();});
 
-// ── Stats ────────────────────────────────────────────────
-function buildStats() {
-  const now = new Date();
-  const expired = ALL_DATA.filter(r => { const d=pDate(r["إنتهاء التسجيل المهني"]); return d&&d<now; }).length;
-  const warn90 = ALL_DATA.filter(r => { const d=pDate(r["إنتهاء التسجيل المهني"]); if(!d) return false; const df=(d-now)/86400000; return df>=0&&df<=90; }).length;
-  document.getElementById("topStats").innerHTML =
-    "<div class='chip'><span class='n'>" + ALL_DATA.length + "</span><span class='l'>إجمالي الكوادر</span></div>" +
-    "<div class='chip warn'><span class='n'>" + expired + "</span><span class='l'>منتهية</span></div>" +
-    "<div class='chip gold'><span class='n'>" + warn90 + "</span><span class='l'>تنتهي قريباً</span></div>";
+function buildStats(){
+  const now=new Date(),ex=AD.filter(r=>{const d=pD(r["إنتهاء التسجيل المهني"]);return d&&d<now;}).length,w9=AD.filter(r=>{const d=pD(r["إنتهاء التسجيل المهني"]);if(!d)return false;const df=(d-now)/86400000;return df>=0&&df<=90;}).length;
+  document.getElementById("topStats").innerHTML="<div class='chip'><span class='n'>"+AD.length+"</span><span class='l'>إجمالي الكوادر</span></div><div class='chip warn'><span class='n'>"+ex+"</span><span class='l'>منتهية</span></div><div class='chip gold'><span class='n'>"+w9+"</span><span class='l'>تنتهي قريباً</span></div>";
 }
-
-// ── Summary tab ──────────────────────────────────────────
-function buildSummary() {
-  const now = new Date();
-  const saudiCount = ALL_DATA.filter(r=>(r["الجنسية"]||"").includes("سعود")).length;
-  const cons = ALL_DATA.filter(r=>r["الدرجة"]==="استشاري").length;
-  const exp90 = ALL_DATA.filter(r=>{ const d=pDate(r["إنتهاء التسجيل المهني"]); if(!d) return false; const df=(d-now)/86400000; return df>=0&&df<=90; }).length;
-  const expired = ALL_DATA.filter(r=>{ const d=pDate(r["إنتهاء التسجيل المهني"]); return d&&d<now; }).length;
-  const wf = ALL_DATA.filter(r=>r["الملف متوفر؟"]==="TRUE").length;
-
-  document.getElementById("scards").innerHTML = [
-    {l:"إجمالي الموظفين",v:ALL_DATA.length,s:"كوادر طبية",c:"var(--p)"},
-    {l:"مواطنون سعوديون",v:saudiCount,s:"من إجمالي الموظفين",c:"var(--blu)"},
-    {l:"استشاريون",v:cons,s:"درجة استشاري",c:"var(--t)"},
-    {l:"تنتهي خلال 90 يوم",v:exp90,s:"تحتاج متابعة",c:"var(--gold)"},
-    {l:"تراخيص منتهية",v:expired,s:"تحتاج تجديد",c:"var(--red)"},
-    {l:"ملفات متوفرة",v:wf,s:"من "+ALL_DATA.length,c:"var(--grn)"},
-  ].map(c=>"<div class='sc2'><div class='sl'>"+c.l+"</div><div class='sv' style='color:"+c.c+"'>"+c.v+"</div><div class='ss'>"+c.s+"</div></div>").join("");
-
-  const barChart = (counts, grad) => {
-    const mx = Math.max(...Object.values(counts));
-    return Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([k,v])=>
-      "<div style='display:flex;align-items:center;gap:10px;margin-bottom:9px'>" +
-        "<div style='width:140px;text-align:right;font-size:12px;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600'>" + k + "</div>" +
-        "<div style='flex:1;background:var(--bg3);border-radius:4px;overflow:hidden'>" +
-          "<div style='width:" + (v/mx*100).toFixed(1) + "%;background:" + grad + ";height:24px;border-radius:4px;display:flex;align-items:center;padding-right:8px'>" +
-            "<span style='font-size:12px;font-weight:800;color:white'>" + v + "</span>" +
-          "</div></div></div>"
-    ).join("");
-  };
-
-  const natC = {}, degC = {};
-  ALL_DATA.forEach(r => { const n=r["الجنسية"]||"غير محدد"; natC[n]=(natC[n]||0)+1; });
-  ALL_DATA.forEach(r => { const d=r["الدرجة"]||"غير محدد"; degC[d]=(degC[d]||0)+1; });
-  document.getElementById("natChart").innerHTML = barChart(natC, "linear-gradient(90deg,var(--p),#0ea5e9)");
-  document.getElementById("degChart").innerHTML = barChart(degC, "linear-gradient(90deg,#7c3aed,#6366f1)");
+function buildSummary(){
+  const now=new Date(),sc=AD.filter(r=>(r["الجنسية"]||"").includes("سعود")).length,co=AD.filter(r=>r["الدرجة"]==="استشاري").length,e9=AD.filter(r=>{const d=pD(r["إنتهاء التسجيل المهني"]);if(!d)return false;const df=(d-now)/86400000;return df>=0&&df<=90;}).length,ex=AD.filter(r=>{const d=pD(r["إنتهاء التسجيل المهني"]);return d&&d<now;}).length,wf=AD.filter(r=>r["الملف متوفر؟"]==="TRUE").length;
+  document.getElementById("sc").innerHTML=[{l:"إجمالي الموظفين",v:AD.length,s:"كوادر طبية",c:"var(--p)"},{l:"مواطنون سعوديون",v:sc,s:"من إجمالي الموظفين",c:"var(--blu)"},{l:"استشاريون",v:co,s:"درجة استشاري",c:"var(--t)"},{l:"تنتهي خلال 90 يوم",v:e9,s:"تحتاج متابعة",c:"var(--gold)"},{l:"تراخيص منتهية",v:ex,s:"تحتاج تجديد",c:"var(--red)"},{l:"ملفات متوفرة",v:wf,s:"من "+AD.length,c:"var(--grn)"}].map(c=>"<div class='sc2'><div class='sl'>"+c.l+"</div><div class='sv' style='color:"+c.c+"'>"+c.v+"</div><div class='ss'>"+c.s+"</div></div>").join("");
+  const bc=(counts,grad)=>{const mx=Math.max(...Object.values(counts));return Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([k,v])=>"<div style='display:flex;align-items:center;gap:10px;margin-bottom:9px'><div style='width:140px;text-align:right;font-size:12px;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600'>"+k+"</div><div style='flex:1;background:var(--bg3);border-radius:4px;overflow:hidden'><div style='width:"+(v/mx*100).toFixed(1)+"%;background:"+grad+";height:24px;border-radius:4px;display:flex;align-items:center;padding-right:8px'><span style='font-size:12px;font-weight:800;color:white'>"+v+"</span></div></div></div>").join("");};
+  const nC={},dC={};AD.forEach(r=>{const n=r["الجنسية"]||"غير محدد";nC[n]=(nC[n]||0)+1;});AD.forEach(r=>{const d=r["الدرجة"]||"غير محدد";dC[d]=(dC[d]||0)+1;});
+  document.getElementById("nc").innerHTML=bc(nC,"linear-gradient(90deg,var(--p),#0ea5e9)");
+  document.getElementById("dc").innerHTML=bc(dC,"linear-gradient(90deg,#7c3aed,#6366f1)");
 }
-
-// ── Expiry tab ───────────────────────────────────────────
-function buildExpiryList() {
-  const now = new Date();
-  const items = ALL_DATA.map(r => {
-    const d = pDate(r["إنتهاء التسجيل المهني"]);
-    return {r, d, diff: d ? (d-now)/86400000 : Infinity};
-  }).filter(x=>x.d&&x.diff<180).sort((a,b)=>a.diff-b.diff);
-
-  if (!items.length) {
-    document.getElementById("exList").innerHTML = "<div class='empty'><div class='ei'>✅</div><p>لا توجد تراخيص تنتهي خلال 180 يوماً</p></div>";
-    return;
-  }
-
-  const trows = items.map(({r, diff}) => {
-    const cls = diff<0?"rr":diff<30?"rr":diff<90?"go":"bb";
-    const lbl = diff<0 ? "منتهي منذ "+Math.abs(Math.round(diff))+" يوم" : "ينتهي بعد "+Math.round(diff)+" يوم";
-    const lnk = r["رابط الترخيص"] || "";
-    return "<tr>" +
-      "<td class='nc'>" + esc(r["الإسم"]) + "</td>" +
-      "<td class='sc'>" + esc(r["التخصص"]) + "</td>" +
-      "<td><span class='bdg bb' style='font-size:11px'>" + esc(r["الفئة"]) + "</span></td>" +
-      "<td>" + flag(r["الجنسية"]) + " " + esc(r["الجنسية"]) + "</td>" +
-      "<td class='" + (diff<0?"eov":diff<90?"ewn":"eok") + "'>" + fmtDate(r["إنتهاء التسجيل المهني"]) + "</td>" +
-      "<td><span class='bdg " + cls + "'>" + lbl + "</span></td>" +
-      "<td>" + (lnk ? "<a class='lnk' href='" + esc(lnk) + "' target='_blank'>🔗</a>" : "-") + "</td>" +
-      "</tr>";
-  }).join("");
-
-  document.getElementById("exList").innerHTML =
-    "<div class='card'>" +
-    "<div class='ch'><span>التراخيص المنتهية أو التي تنتهي خلال <strong>180 يوماً</strong> — " + items.length + " سجل</span></div>" +
-    "<div class='ts'><table>" +
-    "<thead><tr><th>الاسم</th><th>التخصص</th><th>الفئة</th><th>الجنسية</th><th>تاريخ الانتهاء</th><th>الوضع</th><th>رابط</th></tr></thead>" +
-    "<tbody>" + trows + "</tbody></table></div></div>";
+function buildExpiry(){
+  const now=new Date(),items=AD.map(r=>{const d=pD(r["إنتهاء التسجيل المهني"]);return{r,d,diff:d?(d-now)/86400000:Infinity};}).filter(x=>x.d&&x.diff<180).sort((a,b)=>a.diff-b.diff);
+  if(!items.length){document.getElementById("el").innerHTML="<div class='empty'><div class='ei'>✅</div><p>لا توجد تراخيص تنتهي خلال 180 يوماً</p></div>";return;}
+  const tr=items.map(({r,diff})=>{const cls=diff<0?"rr":diff<30?"rr":diff<90?"go":"bb";const lbl=diff<0?"منتهي منذ "+Math.abs(Math.round(diff))+" يوم":"ينتهي بعد "+Math.round(diff)+" يوم";const lk=r["رابط الترخيص"]||"";return "<tr><td class='nc'>"+esc(r["الإسم"])+"</td><td class='sc'>"+esc(r["التخصص"])+"</td><td><span class='bdg bb' style='font-size:11px'>"+esc(r["الفئة"])+"</span></td><td>"+fl(r["الجنسية"])+" "+esc(r["الجنسية"])+"</td><td class='"+(diff<0?"eov":diff<90?"ewn":"eok")+"'>"+fmD(r["إنتهاء التسجيل المهني"])+"</td><td><span class='bdg "+cls+"'>"+lbl+"</span></td><td>"+(lk?"<a class='lnk' href='"+esc(lk)+"' target='_blank'>🔗</a>":"-")+"</td></tr>";}).join("");
+  document.getElementById("el").innerHTML="<div class='card'><div class='ch'><span>التراخيص المنتهية أو التي تنتهي خلال <strong>180 يوماً</strong> — "+items.length+" سجل</span></div><div class='ts'><table><thead><tr><th>الاسم</th><th>التخصص</th><th>الفئة</th><th>الجنسية</th><th>تاريخ الانتهاء</th><th>الوضع</th><th>رابط</th></tr></thead><tbody>"+tr+"</tbody></table></div></div>";
 }
+function switchTab(name){["table","summary","expiry"].forEach(t=>document.getElementById("tab-"+t).style.display=t===name?"":"none");document.querySelectorAll(".tab").forEach((el,i)=>el.classList.toggle("active",["table","summary","expiry"][i]===name));if(name==="summary")buildSummary();if(name==="expiry")buildExpiry();}
+function exportCSV(){const hd=["م","الإسم","الجنسية","الدرجة","التخصص","الفئة","تاريخ الميلاد","إنتهاء التسجيل المهني","إنتهاء التراخيص الطبي","التأمين الطبي","رقم الجوال"];const rows=FD.map(r=>hd.map(h=>'"'+String(r[h]||"").replace(/"/g,'""')+'"').join(","));const csv="\uFEFF"+[hd.join(","),...rows].join("\n");const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download="سلامات_كير.csv";a.click();}
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),3500);}
 
-// ── Tabs ─────────────────────────────────────────────────
-function switchTab(name) {
-  ["table","summary","expiry"].forEach(t => document.getElementById("tab-"+t).style.display = t===name?"":"none");
-  document.querySelectorAll(".tab").forEach((el,i) => el.classList.toggle("active", ["table","summary","expiry"][i]===name));
-  if (name==="summary") buildSummary();
-  if (name==="expiry") buildExpiryList();
-}
-
-// ── Export ───────────────────────────────────────────────
-function exportCSV() {
-  const hd = ["م","الإسم","الجنسية","الدرجة","التخصص","الفئة","تاريخ الميلاد","إنتهاء التسجيل المهني","إنتهاء التراخيص الطبي","التأمين الطبي","رقم الجوال"];
-  const rows = filtered.map(r => hd.map(h => '"' + String(r[h]||"").replace(/"/g,'""') + '"').join(","));
-  const csv = "\uFEFF" + [hd.join(","), ...rows].join("\n");
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(new Blob([csv], {type:"text/csv;charset=utf-8"}));
-  a.download = "سلامات_كير_الكوادر.csv";
-  a.click();
-}
-
-function showToast(msg) {
-  const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show");
-  setTimeout(() => t.classList.remove("show"), 3500);
-}
-
-// ── Init ─────────────────────────────────────────────────
-loadData().then(() => startCountdown());
+init();
 </script>
 </body>
 </html>
+ENDHTML
+echo "Done: $(wc -c < /mnt/user-data/outputs/salamat_live.html) bytes"
+Output
+
+Done: 29181 bytes
